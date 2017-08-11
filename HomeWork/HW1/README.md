@@ -13,7 +13,7 @@ The objective of this assignment is to gain experience with MapReduce. This incl
 
 First, we need to setup Hadoop on our machine. This can be easily done using a Docker image. Follow the following tutorial to download Docker and install the Hadoop docker image. 
 
-[Docker Install](https://github.com/msalloum/cs181/HW1/Docker_Hadoop_Setup.pdf)
+[Docker Install](https://github.com/msalloum/cs181/HomeWork/HW1/Docker_Hadoop_Setup.pdf)
 
 ## Installing Eclipse IDE and maven plugin
 
@@ -56,7 +56,7 @@ In the previous step,  we just ran the JAR file given under the /target director
 
 We will need to compile our WordCount project (given in this folder) including all the dependencies into a Jar file. You can either download maven and compile the project using command line tools, or follow the following tutorial which will walk you through installing Eclipse and a maven Plugin to compile the project. 
 
-[Eclipse/Maven Install](https://github.com/msalloum/cs181/HW1/Eclipse_Maven_Setup.pdf)
+[Eclipse/Maven Install](https://github.com/msalloum/cs181/HomeWork/HW1/Eclipse_Maven_Setup.pdf)
 
 ## Submission 
 
