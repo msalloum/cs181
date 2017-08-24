@@ -50,6 +50,7 @@ The output will be stored in the directory "wordcount_output", so lets take a lo
 >>> bin/hdfs dfs -text wordcount_output/wordcount_output/part-r-00000
 
 
+
 ##  Packaging Jar File
 
 In the previous step,  we just ran the JAR file given under the /target directory. But, how can we generate this JAR file????
@@ -58,6 +59,17 @@ We will need to compile our WordCount project (given in this folder) including a
 
 [Eclipse/Maven Install](https://github.com/msalloum/cs181/tree/master/HomeWork/HW1/Eclipse_Maven_Setup.pdf)
 
+## Your Turn
+
+Once you have the provided example running, its your turn to add new features to the code. 
+
+1. The Mapper includes minimal processing to be case insensitive and remove punctuation from the text. Did I handle all punctuation cases?  Can we also remove stop words? 
+
+2. One optimization to the MapReduce Job that we discussed is the Combiner. Add a combiner to reduce the number of key-value pairs passed to the Reducer. 
+
+
 ## Submission 
 
-Submit the output of your job  and the updated code to Sakai. 
+Submit all your code and the job output as a ZIP file via Sakai. Note, if the ZIP file contains the JAR file for the job, it might be too large to upload to SAKAI, so be sure to exclude the JAR file from the submission. You have a chance to get 5 extra points if you create a github repository that includes your homework submission. If you decide to use github, you still must add a submission via SAKAI and include your github repository link. 
+
+
