@@ -15,6 +15,8 @@ First, we need to setup Hadoop on our machine. This can be easily done using a D
 
 [Docker Install](https://github.com/msalloum/cs181/tree/master/HomeWork/HW1/Docker_Hadoop_Setup.pdf)
 
+***** IMPORTANT NOTE: If you have Windows 10 Home Edition, download Docker Toolbox vs Docker for Windows *****
+
 ## Installing Eclipse IDE and maven plugin
 
 Now that we have Hadoop setup on an virtual environment, lets write our first MapReduce job. Actually, we will start with code that we discussed in class and provided here under the WordCount folder.
