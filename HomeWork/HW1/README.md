@@ -29,6 +29,7 @@ Now that we have Hadoop setup on an virtual environment, lets write our first Ma
 
 At the shell / terminal window, type: 
 
+>>>     export HADOOP_HOME=/usr/local/hadoop
 >>>	$HADOOP_HOME/bin/hdfs dfs -mkdir data
 
 The above command creates a directory called 'data' on the distributed file system. Next, we will place our input file in that directory. 
@@ -47,9 +48,9 @@ So the above command should start our Map Reduce job. It might take a while for 
 
 The output will be stored in the directory "wordcount_output", so lets take a look at the output. 
 
->>> bin/hdfs dfs -ls wordcount_output/*
+>>> $HADOOP_HOME/bin/hdfs dfs -ls wordcount_output/*
 
->>> bin/hdfs dfs -text wordcount_output/wordcount_output/part-r-00000
+>>> $HADOOP_HOME/bin/hdfs dfs -text wordcount_output/part-r-00000
 
 
 
