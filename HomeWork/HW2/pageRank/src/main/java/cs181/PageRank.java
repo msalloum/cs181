@@ -45,7 +45,7 @@ public class PageRank {
 			job1.setOutputValueClass(Text.class);
 		        
 			job1.setMapperClass(Mapper1.class);			// Name of Mapper class 
-			job1.setReducerClass(Reducer1.class);		// Name of Reduer class
+			job1.setReducerClass(Reducer1.class);		// Name of Reducer class
 			job1.setNumReduceTasks(10); // Specifies the number of reducers
 
 			job1.setInputFormatClass(TextInputFormat.class);  // format of input to MR

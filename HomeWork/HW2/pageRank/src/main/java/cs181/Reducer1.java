@@ -9,40 +9,28 @@ import org.apache.hadoop.mapreduce.*;
  
 public class Reducer1 extends Reducer<Text, Text, Text, Text> {
 
-	/* 	Input to Reducer 1 
-	*		Key:	k 
-	*		Value: 	M id val   &   V val 
-	*
-	*/
+	/* TODO - Implement the reduce function. 
+	 * 
+	 * 
+	 * Input :    Adjacency Matrix Format       ->	( j   ,   M  \t  i	\t value 
+	 * 			  Vector Format					->	( j   ,   V  \t   value )
+	 * 
+	 * Output :   Key-Value Pairs               
+	 * 			  Key ->   	i
+	 * 			  Value -> 	M 	\t 	i 	\t 	value    or   
+	 * 						V 	\t  value 
+	 */
 
 	public void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
 			
-		// NEED LOOP WITH CODE TO ADD TO ARRAY LIST 
+		
 		double vVal = 0;
 		ArrayList<String> mList = new ArrayList<String> ();
 					
-		//Loop through each reducer value 
-		for (Iterator<Text> it = values.iterator(); it.hasNext();) {
-			String nextVal = it.next().toString();
-			String parts[] = nextVal.split("\t");
-
-			// M - transition Matrix
-			if (parts.length > 2)  { // M i val
-				mList.add(parts[1] + "\t" + parts[2]);
-			} else {// Vector: V  val			
-				vVal = Double.parseDouble(parts[1]);
-			}
-		}
-					
-		for (int i = 0; i < mList.size(); i++) { 
-			String parts[] = mList.get(i).split("\t"); 
-			String rowId = parts[0].trim(); 
-			double val = Double.parseDouble(parts[1]);
-
-			//Key = matrix row id 
-			//Value = matrix item * vector 
-			context.write( new Text(rowId), new Text(String.valueOf(val*vVal))); 
-		}
+		// Loop through values, to add m_ij term to mList and save v_j to variable v_j
+		// Then Iterate through the terms in mList, to multiply each term by variable v_j.
+		// Each output is a key-value pair  ( i  ,   m_ij * v_j)
+		
 	}
 
 }
