@@ -17,8 +17,8 @@ public class Reducer1 extends Reducer<Text, Text, Text, Text> {
 	 * 
 	 * Output :   Key-Value Pairs               
 	 * 			  Key ->   	i
-	 * 			  Value -> 	M 	\t 	i 	\t 	value    or   
-	 * 						V 	\t  value 
+	 * 			  Value -> 	M_ij * V_j  
+	 * 						
 	 */
 
 	public void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
