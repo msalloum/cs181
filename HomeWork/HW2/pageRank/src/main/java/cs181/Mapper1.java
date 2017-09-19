@@ -16,8 +16,8 @@ public class Mapper1 extends Mapper<LongWritable, Text, Text, Text> {
 	 * 			  Vector Format					->	V  \t  j	\t  value 
 	 * 
 	 * Output :   Key-Value Pairs               
-	 * 			  Key ->   	i
-	 * 			  Value -> 	M 	\t 	j 	\t 	value    or   
+	 * 			  Key ->   	j
+	 * 			  Value -> 	M 	\t 	i 	\t 	value    or   
 	 * 						V 	\t  value 
 	 */
 
