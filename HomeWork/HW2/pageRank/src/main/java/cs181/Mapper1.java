@@ -12,11 +12,19 @@ public class Mapper1 extends Mapper<LongWritable, Text, Text, Text> {
 	 * Recall, we had two input files feed-in to our map reduce job, both the adjacency matrix and the vector file. 
 	 * This, our code must contain some logic to differentiate between the two inputs, and output the appropriate key-value pair.
 	 * 
+<<<<<<< HEAD
+	 * Input :    Adjacency Matrix Format       ->	M  \t  i	\t	i		\t value 
+	 * 			  Vector Format					->	V  \t  j	\t  value 
+	 * 
+	 * Output :   Key-Value Pairs               
+	 * 			  Key ->   	i
+=======
 	 * Input :    Adjacency Matrix Format       ->	M  \t  i	\t	j		\t value 
 	 * 			  Vector Format					->	V  \t  j	\t  value 
 	 * 
 	 * Output :   Key-Value Pairs               
 	 * 			  Key ->   	j
+>>>>>>> 0fdd95eab6435ad139f95e78623ef9953581bf53
 	 * 			  Value -> 	M 	\t 	i 	\t 	value    or   
 	 * 						V 	\t  value 
 	 */
