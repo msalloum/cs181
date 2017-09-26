@@ -9,7 +9,7 @@ import org.apache.hadoop.mapreduce.*;
 public class Reducer2 extends Reducer<Text, Text, Text, Text> {
 	
 	
-	/* TODO - Implement the reduce function. This function receives terms for 1 row of Mv multiplication. 
+	/* The reduce function. This function receives terms for 1 row of Mv multiplication. 
 	 * The function should iterate through the 'values' variable and sum-up the terms. 
 	 * 
 	 * Input :    Key-Value Pair   (i  ,   values => essentially a list of terms [m_i1*v_1, m_i2*v_2, ...] ) 
@@ -21,9 +21,15 @@ public class Reducer2 extends Reducer<Text, Text, Text, Text> {
 	
 	public void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
 		
-		
-		// TODO 
-				
+	    	double sum = 0;
+	    	
+	    	/* Iterate through each value for this given key, and compute the sum */
+	        for (Text v : values) {
+	            sum += Double.parseDouble(v.toString());
+	        }
+	        
+	        /* Output Key and total count for that key */
+	        context.write(key, new Text (Double.toString(sum)));
 	}
 }
 
