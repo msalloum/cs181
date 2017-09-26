@@ -26,6 +26,7 @@ public class Reducer1 extends Reducer<Text, Text, Text, Text> {
 	public void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
 			
 		
+		
 		double vVal = 0;
 		ArrayList<String> mList = new ArrayList<String> ();
 					
@@ -37,21 +38,17 @@ public class Reducer1 extends Reducer<Text, Text, Text, Text> {
 			String strVal  = val.toString();
 			String[] value = strVal.split("\t");
 			
-			if (value[0].equals("V")) {  // vector tuple ("V", value)
+			if (value[0].equals("V")) {
 				vVal += Double.parseDouble(value[1]);
 			}
-			else { // matrix tuple ("M", i, value), add to mList
+			else {
 				mList.add(strVal);
 			}
 		}
 		
-		for (String val : mList) { // loop through matrix key-value pairs
+		for (String val : mList) {
 			String[] value = val.split("\t");
-			String i = value[1];
-			String v =  value[2];
-			double vMult = vVal*Double.parseDouble(v);
-			/* emit (value[1], vVal*value[2] */
-			context.write( new Text(i) , new Text(Double.toString(vMult)));
+			context.write(new Text(value[1]), new Text(Double.toString(vVal*Double.parseDouble(value[2]))));
 		}
 	}
 }

@@ -23,24 +23,20 @@ public class Mapper1 extends Mapper<LongWritable, Text, Text, Text> {
 
 	public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException { 
 		
-
 		String input  = value.toString();
 		String[] indicesAndValue = input.split("\t"); // tab delimited
 
 		Text outputKey = new Text();
 		Text outputValue = new Text();
 		
-		/* If the value is from the matrix: Tuple is ("M", i, j, value) */
 		if (indicesAndValue[0].equals("M")) {
-			outputKey.set(  indicesAndValue[2]  ); // key is j
-			outputValue.set( "M\t" + indicesAndValue[1] + "\t" + indicesAndValue[3] );  // value is (i, value)
+			outputKey.set(indicesAndValue[2]);
+			outputValue.set("M\t"+indicesAndValue[1]+"\t"+indicesAndValue[3]);
 		}
-		/* If the value is from the vector: Tuple is ("V", j, value) */
 		else {
-			outputKey.set(  indicesAndValue[1]  ); // key is j
-			outputValue.set( "V\t"+indicesAndValue[2] );  // value is (v_k)	
+			outputKey.set(indicesAndValue[1]);
+			outputValue.set("V\t"+indicesAndValue[2]);
 		}
-		/* Note, use 'context.write (outputKey, outputValue) to output a key-value pair */
 		context.write(outputKey, outputValue);
 	}
 }
