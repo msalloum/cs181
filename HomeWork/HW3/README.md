@@ -4,6 +4,9 @@ This assignment will focus on Stream Processing Algorithms, specifically the Cou
 
 1.  http://theory.stanford.edu/~tim/s15/l/l2.pdf   (Lecture Notes on Count Min Sketch)
 2.  https://people.cs.umass.edu/~mcgregor/711S12/countmin.pdf  (Original paper on Count Min Sketch)
+
+This is a pair programming assingment. If you work with a partner, you must make sure you have both names on all code submitted, as well as a comment on Sakai or the github page. One submission per group is fine. 
+
 -----------
 
 ## Installation of Spark
@@ -25,6 +28,7 @@ A Count-Min sketch consists of a two-dimensional array (width x depth) of intege
 
 Now lets look at some pseudocode to update the frequency of a single data item stored in a count min sketch
 
+```(sh)
   increment(item) {
       Calculate 'd' hash values for this item where 'd' is the depth of the Count-Min sketch.
       Each hash value here will be a number between 0 and 'width'
@@ -35,9 +39,11 @@ Now lets look at some pseudocode to update the frequency of a single data item s
       Increment the corresponding counter which is pointed to by each of the hash values. 
       i.e. if hashes[1] was equal to 4, then we would increment counter[4] corresponding to the first row of the  sketch
   }
+```
   
 To summarize, we update 'd' different counters when an item is inserted into the Count-Min sketch. Now lets take a look at how we can estimate the frequency of a particular item
 
+```(sh)
    estimate(item) {
       Calculate 'd' hash values for this item similar to what we did for increment.          
       Return the minimum value among all the counters these hash values point to.
@@ -45,7 +51,8 @@ To summarize, we update 'd' different counters when an item is inserted into the
       i.e if we had depth = 2 and hashes[1] = 4, and hashes[2] = 2, the we would return the
       minimum of counter[4] from the first row and counter[2] from the second row.
    }
-   
+```
+
 Implementation
 
 You are asked to implement the Count-Min algorithm in the language of your choice on Spark (I would recommend Python because the BloomFilter example is in python). The Count-Min sketch should take two parameters, delta and epsilon. These two parameters should be used to determine w and d. Where w denotes the number of buckets (size of the hash tables), and d is the number of hash tables.
