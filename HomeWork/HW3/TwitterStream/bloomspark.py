@@ -33,10 +33,6 @@ def main():
     """
     Generate multiple streams of data using W workers and P partitions.
     Create a bloomfilter on each of the P partitions.
-    Aggregate partitions sketches locally (within workers), then
-    combine all results globally to return a single sketch.
-
-    Print accumulated counts in final sketch.
     """
     # Create a local StreamingContext with two working thread and batch interval of 1 second
     sc = pyspark.SparkContext("local[2]", "Spark Bloom Filter")
