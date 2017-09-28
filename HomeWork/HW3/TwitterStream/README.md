@@ -24,14 +24,17 @@ For each dependency, install using: `pip install <library>`
 You don't have `pip' installed?? Download 'get_pip.py' from https://pip.pypa.io/en/stable/installing/ and run the code using 'python get-pip.py'
 
 
-If you are working on Windows, then you may consider just sticking with Docker installing the tools directly. The instructions of installing Spark env using Docker is given 
+If you are working on Windows, then you may consider just sticking with Docker and installing a Spark image, as shown below:
+```{sh}
+>>> docker pull sequenceiq/spark:1.6.0
+``` 
 
 ```{sh}
-docker pull sequenceiq/spark:1.6.0
+>>> docker run -v  /Users/msalloum/cs181/HW3:/mnt/cs181   -it -p 8088:8088 -p 8042:8042 -p 4040:4040 -h sandbox sequenceiq/spark:1.6.0 bash
 ``` 
-```{sh}
- docker run -v  /Users/msalloum/cs181/HW3:/mnt/cs181   -it -p 8088:8088 -p 8042:8042 -p 4040:4040 -h sandbox sequenceiq/spark:1.6.0 bash
-``` 
+
+Alternatively, you can download Spark directly from their website: https://d3kbcqa49mib13.cloudfront.net/spark-2.2.0-bin-hadoop2.7.tgz
+
 
 # Spark Batch Test
 
@@ -93,7 +96,6 @@ The following top 10 list was accumulated after gathering hashtags from tweets:
 Bloomfilter algorithm / data structure is implemented in bloomfilter.py. 
 
 To run a test :
-
 
 ```{sh}
 python bloomfilter_test.py
