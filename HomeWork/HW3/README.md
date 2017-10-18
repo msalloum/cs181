@@ -61,9 +61,9 @@ At minimum, your implementation should include 4 functions:
 
 compute_width_depth(delta, epsilon) - Takes two parameters (delta and epsilon), which define the accuracy and error probability of the sketch, and it should return two values (width and depth). 
 
-	d = 2/ delta      #  d represents the depth of the 2D array, or the number of hash functions used
+	d = 2/ epsilon      #  d represents the depth of the 2D array, or the number of hash functions used
 
-	w = (log 1/ epsilon)    #  w represents the width of the 2D arra
+	w = log (1/ delta)    #  w represents the width of the 2D arra
 
 increment (item)  - increment the corresponding counter for this item. The hash functions used is up to you, and they can be automatically generated. 
 
