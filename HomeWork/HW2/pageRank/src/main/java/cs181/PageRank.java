@@ -76,7 +76,7 @@ public class PageRank {
 				job2.setReducerClass(Reducer2.class); 	// reducer 2
 				job2.setNumReduceTasks(10);
 				
-				/* Define the format of the input and output files to our MR job */
+				// Define the format of the input and output files to our MR job
 				job2.setInputFormatClass(TextInputFormat.class);
 				job2.setOutputFormatClass(TextOutputFormat.class);
 				
